@@ -1,6 +1,13 @@
 <template>
-    <header>
-        <h1>Ciao, sono l'header</h1>
+    <header class="bg-dark d-flex align-items-center justify-content-between">
+        <h1 class="text-danger text-uppercase fw-bold ms-2">boolflix</h1>
+        <form action="">
+            <div class="d-flex me-2">
+                <label class="text-white me-2">Ricerca film</label>
+                <input type="text" v-model="testoCercato" @keydown.enter.prevent="$emit( 'ricerca', testoCercato )" class="me-2">
+                <button @click.prevent="$emit( 'ricerca', testoCercato )">Cerca</button>
+            </div>
+        </form>
     </header>
 </template>
 
@@ -9,6 +16,11 @@
 
 export default {
     name: 'HeaderComp',
+    data() {
+        return {
+            testoCercato: ''
+        };
+    },
     components: {
     // HelloWorld
     }
@@ -17,6 +29,9 @@ export default {
 
 <style scoped lang="scss">
     header {
-        background-color: goldenrod;
+
+        h1 {
+            margin-bottom: 0!important;
+        }
     }
 </style>

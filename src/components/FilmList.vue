@@ -1,7 +1,9 @@
 <template>
-    <section>
-        <h3 class="lead">Questa è la film list</h3>
-        <CardComp/>
+    <section class="container">
+        <h3 class="lead text-light">Film:</h3>
+        <div class="row row-cols-5">
+            <CardComp v-for="(elem, index) in propsArrayFilms2" :key="index" :film="elem"/>
+        </div>
     </section>
 </template>
 
@@ -15,18 +17,13 @@ export default {
     components: {
     // HelloWorld
     CardComp
+    },
+    props: {
+        propsArrayFilms2: Array
     }
 }
 </script>
 
 <style scoped lang="scss">
-    section {
-        border: 1px solid antiquewhite;
-
-    h3 {
-        color: maroon;
-    }
-
-    }
     
 </style>
