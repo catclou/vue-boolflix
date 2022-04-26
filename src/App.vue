@@ -19,7 +19,7 @@ export default {
       return {
         testoCercato: '',
         apiKey: 'dd24b1cfe827ceabdc1afbe01d042a08',
-        films: []
+        films: [],
       };
   },
   

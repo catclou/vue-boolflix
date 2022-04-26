@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h3 class="lead text-light">Serie tv:</h3>
+        
     </section>
 </template>
 
@@ -16,5 +16,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    
+    h3 {
+        color: olive;
+    }
 </style>
