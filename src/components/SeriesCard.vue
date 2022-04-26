@@ -1,23 +1,27 @@
 <template>
     <div class="col">
         <div class="card m-3 p-2 overflow-auto">
-            <span class="card-title">Titolo: {{film.title}}</span>
-            <span class="card-title">Titolo originale: {{film.original_title}}</span>
+            <span class="card-title">Titolo: {{series.name}}</span>
+            <span class="card-title">Titolo originale: {{series.original_name}}</span>
             <div class="d-flex justify-content-center">
                 <span>Lingua:</span>
-                <span class="bandiera ms-2" :class="(film.original_language == 'en') ? 'band-en' : (film.original_language == 'it') ? 'band-it' : 'band-altro'"></span>
+                <span class="bandiera ms-2" :class="(series.original_language == 'en') ? 'band-en' : (series.original_language == 'it') ? 'band-it' : 'band-altro'"></span>
             </div>
-            <p class="card-text">Voto: {{film.vote_average}}</p>
+            <p class="card-text">Voto: {{series.vote_average}}</p>
         </div>
     </div>
 </template>
 
 <script>
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-    name: 'CardComp',
+    name: 'SeriesCard',
     props: {
-        film: Object
+        series: Object
+    },
+    components: {
+    // HelloWorld
     }
 }
 </script>

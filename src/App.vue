@@ -1,12 +1,11 @@
 <template>
   <div id="app">
     <HeaderComp @ricerca="funRicercaFilms" />
-    <MainComp :propsArrayFilms="films"/>
+    <MainComp :propsArrayFilms="films" :propsArraySerie="serie"/>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import HeaderComp from './components/HeaderComp.vue'
 import MainComp from './components/MainComp.vue'
 import "bootstrap"
@@ -20,6 +19,7 @@ export default {
         testoCercato: '',
         apiKey: 'dd24b1cfe827ceabdc1afbe01d042a08',
         films: [],
+        serie: []
       };
   },
   
@@ -31,16 +31,17 @@ export default {
   methods: {
       funRicercaFilms(testoCercato){
 
-        let films = []
-
+        // ricerca di film 
         axios.get(`http://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${testoCercato}&language=it-IT`)
         .then( (res)=> {
-        // console.log(res.data.results)
         this.films = res.data.results
-        // films.push(res.data.results)
         })
-        console.log(films)
         
+        // ricerca di serie
+        axios.get(`http://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${testoCercato}&language=it-IT`)
+        .then( (res)=> {
+        this.serie = res.data.results
+        })
 
       }
   },
