@@ -8,8 +8,8 @@
                 </div>
                 <div class="flip-box-back overflow-auto">
                     <div class="m-3 p-2">
-                        <span class="card-title">Titolo: {{series.name}}</span>
-                        <span class="card-title">Titolo originale: {{series.original_name}}</span>
+                        <span class="card-title d-inline-block lead fw-bold">{{series.name}}</span>
+                        <span class="card-title d-block">Titolo originale: {{series.original_name}}</span>
                         <div class="d-flex justify-content-center">
                             <span>Lingua:</span>
                             <span class="bandiera ms-2" :class="(series.original_language == 'en') ? 'band-en' : (series.original_language == 'it') ? 'band-it' : 'band-altro'"></span>
@@ -17,7 +17,7 @@
                         <p class="card-text">Voto: {{series.vote_average}}
                             <i v-for="i in 5" :key="i" class="fa-star" :class="( i <= ratingStars() ) ? 'fa-solid' : 'fa-regular'"></i>
                         </p>
-                        <p class="card-text">Trama: {{series.overview}}</p>
+                        <p class="card-text"> <span class="fw-bold">Trama: </span>{{series.overview}}</p>
                     </div>
                 </div>
             </div>

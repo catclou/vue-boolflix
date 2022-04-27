@@ -8,8 +8,8 @@
                 </div>
                 <div class="flip-box-back overflow-auto">
                     <div class="m-3 p-2">
-                        <span class="card-title">Titolo: {{film.title}}</span>
-                        <span class="card-title">Titolo originale: {{film.original_title}}</span>
+                        <span class="card-title d-inline-block lead fw-bold">{{film.title}}</span>
+                        <span class="card-title d-block">Titolo originale: {{film.original_title}}</span>
                         <div class="d-flex justify-content-center">
                             <span>Lingua:</span>
                             <span class="bandiera ms-2" :class="(film.original_language == 'en') ? 'band-en' : (film.original_language == 'it') ? 'band-it' : 'band-altro'"></span>
@@ -17,7 +17,7 @@
                         <p class="card-text">Voto: {{film.vote_average}}
                             <i v-for="i in 5" :key="i" class="fa-star" :class="( i <= ratingStars() ) ? 'fa-solid' : 'fa-regular'"></i>
                         </p>
-                        <p class="card-text">Trama: {{film.overview}}</p>
+                        <p class="card-text"><span class="fw-bold">Trama: </span>{{film.overview}}</p>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,6 @@ export default {
 img {
     width: 100%;
     height: 100%;
-    // object-fit: cover;
 }
 
     /* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */

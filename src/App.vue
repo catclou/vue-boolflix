@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderComp @ricerca="funRicercaFilms" />
-    <MainComp :propsArrayFilms="films" :propsArraySerie="serie"/>
+    <MainComp id="main" :propsArrayFilms="films" :propsArraySerie="serie"/>
   </div>
 </template>
 
@@ -65,4 +65,5 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
 </style>

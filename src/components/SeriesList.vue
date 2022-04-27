@@ -1,5 +1,5 @@
 <template>
-    <section class="container pt-3">
+    <section class="container pt-5">
         <h3 class="text-light">Serie tv:</h3>
         <div class="row row-cols-5">
             <SeriesCard v-for="(elem, index) in propsArraySerie2" :key="index" :series="elem"/>
