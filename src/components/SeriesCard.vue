@@ -14,7 +14,9 @@
                             <span>Lingua:</span>
                             <span class="bandiera ms-2" :class="(series.original_language == 'en') ? 'band-en' : (series.original_language == 'it') ? 'band-it' : 'band-altro'"></span>
                         </div>
-                        <p class="card-text">Voto: {{series.vote_average}}</p>
+                        <p class="card-text">Voto: {{series.vote_average}}
+                            <i v-for="i in 5" :key="i" class="fa-star" :class="( i <= ratingStars() ) ? 'fa-solid' : 'fa-regular'"></i>
+                        </p>
                         <p class="card-text">Trama: {{series.overview}}</p>
                     </div>
                 </div>
@@ -32,8 +34,11 @@ export default {
     props: {
         series: Object
     },
-    components: {
-    // HelloWorld
+    methods: {
+        ratingStars() {
+            let ratingOnFiveScale = Math.ceil(this.series.vote_average)
+            return ratingOnFiveScale / 2
+        }
     }
 }
 </script>

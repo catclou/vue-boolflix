@@ -14,7 +14,9 @@
                             <span>Lingua:</span>
                             <span class="bandiera ms-2" :class="(film.original_language == 'en') ? 'band-en' : (film.original_language == 'it') ? 'band-it' : 'band-altro'"></span>
                         </div>
-                        <p class="card-text">Voto: {{film.vote_average}}</p>
+                        <p class="card-text">Voto: {{film.vote_average}}
+                            <i v-for="i in 5" :key="i" class="fa-star" :class="( i <= ratingStars() ) ? 'fa-solid' : 'fa-regular'"></i>
+                        </p>
                         <p class="card-text">Trama: {{film.overview}}</p>
                     </div>
                 </div>
@@ -30,12 +32,18 @@ export default {
     name: 'CardComp',
     props: {
         film: Object
+    },
+    methods: {
+        ratingStars() {
+            let ratingOnFiveScale = Math.ceil(this.film.vote_average)
+            return ratingOnFiveScale / 2
+        }
     }
 }
 </script>
 
 <style scoped lang="scss">
-    .bandiera {
+.bandiera {
     height: 25px;
     width: 25px;
     background-size: contain;
