@@ -1,5 +1,5 @@
 <template>
-    <main class="bg-secondary">
+    <main class="bg-secondary d-flex flex-column">
         <FilmList :propsArrayFilms2="propsArrayFilms"/>
         <SeriesList :propsArraySerie2="propsArraySerie"/>
     </main>
